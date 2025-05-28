@@ -1,0 +1,200 @@
+/* General body and typography */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #e0f7fa; /* Light blue background */
+    color: #333; /* Dark grey text */
+}
+
+h1, h2 {
+    color: #01579b; /* Dark blue for headings */
+    margin-bottom: 20px;
+}
+
+a {
+    color: #0277bd; /* Medium blue for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #01579b; /* Darker blue on hover */
+}
+
+/* Container for form groups */
+.form-group {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #b3e5fc; /* Light blue border */
+    border-radius: 5px;
+    background-color: #e1f5fe; /* Lighter blue background */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0288d1; /* Slightly lighter blue for labels */
+}
+
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #b3e5fc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease-in-out; /* Smooth transition on focus */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="number"]:focus,
+.form-group textarea:focus {
+    border-color: #0277bd; /* Highlight border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 5px rgba(2, 119, 189, 0.5); /* Add subtle shadow on focus */
+}
+
+.form-group textarea {
+    height: 120px; /* Adjusted height */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 8px; /* Increased margin */
+    vertical-align: middle; /* Align checkbox vertically */
+}
+
+/* Styles for number inputs within ranges */
+.price-range input[type="number"],
+.floor-range input[type="number"] {
+    width: calc(50% - 10px); /* Adjusted width considering padding and margin */
+    display: inline-block;
+    margin-right: 10px; /* Add margin between inputs */
+}
+
+.price-range label,
+.floor-range label {
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: baseline; /* Align labels with input text */
+}
+
+/* Styles for buttons */
+.button-group {
+    margin-top: 20px;
+}
+
+button[type="submit"] {
+    padding: 12px 25px; /* Larger padding */
+    background-color: #0277bd; /* Medium blue button */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+}
+
+button[type="submit"]:hover {
+    background-color: #01579b; /* Darker blue on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Increase shadow on hover */
+}
+
+/* Style for cancel links (make them look like buttons) */
+a.button-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #e57373; /* Light red for cancel (contrasting) */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+a.button-link:hover {
+    background-color: #ef5350; /* Darker red on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Table styles (updated for modern look) */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Add shadow to table */
+    background-color: #fff; /* White background for table */
+    border-radius: 8px; /* Rounded corners for table */
+    overflow: hidden; /* Hide overflowing content for rounded corners */
+}
+
+th, td {
+    border: 1px solid #e0e0e0; /* Lighter border */
+    text-align: left;
+    padding: 12px; /* More padding */
+}
+
+th {
+    background-color: #b3e5fc; /* Light blue for table headers */
+    color: #01579b; /* Dark blue text for headers */
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f1f8e9; /* Light green for even rows (subtle variation) */
+}
+
+tr:hover {
+    background-color: #e0f7fa; /* Light blue on row hover */
+    cursor: pointer; /* Indicate interactivity on hover */
+}
+
+/* Specific style for the "Actions" column */
+.owner-actions {
+    white-space: nowrap;
+}
+
+.owner-actions a {
+    margin-right: 10px; /* Space out action links */
+}
+
+.owner-actions form {
+    display: inline; /* Keep form inline with links */
+}
+
+.owner-actions button {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #0277bd; /* Match link color */
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.owner-actions button:hover {
+    color: #01579b; /* Match link hover color */
+}
+
+
+/* Detail page specific styles */
+.detail-item {
+    margin-bottom: 15px; /* More space */
+    padding: 8px;
+    border-bottom: 1px dashed #b3e5fc; /* Dashed border */
+}
+
+.detail-item:last-child {
+    border-bottom: none; /* No border for the last item */
+}
+
+.detail-label {
+    font-weight: bold;
+    color: #0288d1;
+    margin-right: 10px; /* Space between label and value */
+}

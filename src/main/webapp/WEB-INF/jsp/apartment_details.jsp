@@ -5,15 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Apartment Details: <c:out value="${apartment.address}"/></title>
-    <style>
-        .detail-item {
-            margin-bottom: 10px;
-        }
-
-        .detail-label {
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 <h1>Apartment Details</h1>
@@ -30,6 +22,9 @@
     </div>
     <div class="detail-item">
         <span class="detail-label">Number of Rooms:</span> <c:out value="${apartment.numberOfRooms}"/>
+    </div>
+    <div class="detail-item">
+        <span class="detail-label">Floor:</span> <c:out value="${apartment.parameters.floor}"/>
     </div>
     <div class="detail-item">
         <span class="detail-label">Price:</span> <c:out value="${apartment.price}"/> $
@@ -71,9 +66,6 @@
                     No
                 </c:otherwise>
             </c:choose>
-        </div>
-        <div class="detail-item">
-            <span class="detail-label">Floor:</span> <c:out value="${apartment.parameters.floor}"/>
         </div>
     </c:if>
     <c:if test="${apartment.parameters == null}">

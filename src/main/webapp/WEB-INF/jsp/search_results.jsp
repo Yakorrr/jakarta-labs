@@ -5,35 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Search Results</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        th, td {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .owner-actions {
-            white-space: nowrap;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 <h1>Search Results</h1>
-
-<%-- Optional: Display search parameters back --%>
-<%-- <c:if test="${searchParameters != null}">
-    <p>Search Parameters: Balcony: ${searchParameters.hasBalcony ? 'Yes' : 'No'}, Parking: ${searchParameters.hasParking ? 'Yes' : 'No'}, Furnished: ${searchParameters.isFurnished ? 'Yes' : 'No'}, Minimum Floor: ${searchParameters.floor}</p>
-</c:if> --%>
-
 
 <c:if test="${searchResults != null && not empty searchResults}">
     <table>

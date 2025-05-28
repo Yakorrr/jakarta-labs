@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Apartment Rental</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
     <%-- Redirect to the apartments list --%>
     <meta http-equiv="refresh" content="0;URL=${pageContext.request.contextPath}/apartments">
 </head>

@@ -10,37 +10,7 @@
             <c:otherwise>Add New Apartment</c:otherwise>
         </c:choose>
     </title>
-    <style>
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        .form-group input[type="text"],
-        .form-group input[type="number"],
-        .form-group textarea {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box; /* Include padding in the element's total width and height */
-        }
-
-        .form-group textarea {
-            height: 100px; /* Adjust as needed */
-        }
-
-        .form-group input[type="checkbox"] {
-            margin-right: 5px;
-        }
-
-        .button-group {
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css">
 </head>
 <body>
 <h1>
@@ -79,6 +49,13 @@
     </div>
 
     <div class="form-group">
+        <label for="floor">Floor:</label>
+        <input type="number" id="floor" name="floor"
+               value="<c:out value="${apartment.parameters != null ? apartment.parameters.floor : ''}"/>" min="0"
+               required>
+    </div>
+
+    <div class="form-group">
         <label for="price">Price ($):</label>
         <input type="number" id="price" name="price" value="<c:out value="${apartment.price}"/>" step="0.01" required>
     </div>
@@ -112,13 +89,6 @@
                    <c:if test="${apartment.parameters != null && apartment.parameters.hasFurniture}">checked</c:if>>
             Furnished
         </label>
-    </div>
-
-    <div class="form-group">
-        <label for="floor">Floor:</label>
-        <input type="number" id="floor" name="floor"
-               value="<c:out value="${apartment.parameters != null ? apartment.parameters.floor : ''}"/>" min="0"
-               required>
     </div>
 
     <div class="button-group">
