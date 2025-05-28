@@ -105,29 +105,45 @@ public class ApartmentServiceStub {
 
     /**
      * Searches for apartments based on parameters.
-     * This is a stub method with basic filtering logic.
+     * This is a stub method with improved filtering logic for ranges and exact match.
      *
      * @param searchParameters The parameters to search by.
      * @return A list of apartments matching the search criteria.
      */
     public List<Apartment> searchApartments(ApartmentParameters searchParameters) {
-        // Implement basic filtering logic based on the provided parameters
         return apartments.stream()
                 .filter(apartment -> {
                     ApartmentParameters currentParams = apartment.getParameters();
-                    // Basic matching logic - you can make this more sophisticated
-                    boolean matches = !searchParameters.isHasBalcony() || currentParams.isHasBalcony();
+
+                    // Filter by boolean parameters (match only if true is requested)
+                    if (searchParameters.isHasBalcony() && !currentParams.isHasBalcony()) {
+                        return false;
+                    }
                     if (searchParameters.isHasParking() && !currentParams.isHasParking()) {
-                        matches = false;
+                        return false;
                     }
                     if (searchParameters.isHasFurniture() && !currentParams.isHasFurniture()) {
-                        matches = false;
+                        return false;
                     }
-                    // Simple floor check (greater than or equal to)
-                    if (searchParameters.getFloor() > 0 && currentParams.getFloor() < searchParameters.getFloor()) {
-                        matches = false;
+
+                    // Filter by number of rooms (exact match if specified and > 0)
+                    if (searchParameters.getNumberOfRooms() > 0 && apartment.getNumberOfRooms() !=
+                            searchParameters.getNumberOfRooms()) {
+                        return false;
                     }
-                    return matches;
+
+                    // Filter by floor (range min-max)
+                    if (searchParameters.getMaxFloor() > 0 && currentParams.getFloor() > searchParameters.getMaxFloor()) {
+                        return false;
+                    }
+
+                    // Filter by price range (min-max)
+                    if (searchParameters.getMinPrice() > 0 && apartment.getPrice() < searchParameters.getMinPrice()) {
+                        return false;
+                    }
+
+                    // Filter if maxPrice is specified and apartment price is above it
+                    return searchParameters.getMaxPrice() == Double.MAX_VALUE || !(apartment.getPrice() > searchParameters.getMaxPrice());
                 })
                 .collect(Collectors.toList());
     }
